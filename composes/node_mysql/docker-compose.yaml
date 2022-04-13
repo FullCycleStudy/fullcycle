@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  # mysql:
+  #   build:
+  #     context: ../../databases/mysql
+  #     dockerfile: Dockerfile.prod
+  #   image: tiagonerv1987/mysql:prod
+  #   container_name: mysql
+  #   command: [mysqld, --default-authentication-plugin=mysql_native_password, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --innodb_monitor_enable=all, --max-connections=1001, --innodb-use-native-aio=0, --explicit_defaults_for_timestamp=true]
+  #   restart: always
+  #   tty: true
+  #   volumes:
+  #     - ../../databases/mysql/data:/var/lib/mysql
+  #     - ../../databases/mysql/my.cnf:/etc/mysql/my.cnf
+  #   environment:
+  #     - MYSQL_DATABASE=nodedb
+  #     - MYSQL_USER=usernode
+  #     - MYSQL_PASSWORD=123456
+  #   expose:
+  #     - 3306
+  #   ports:
+  #     - "3306:3306"
+  #   networks:
+  #     - node-net
+
+  node:
+    build:
+      context: ../../frameworks/node
+      dockerfile: Dockerfile.prod
+    image: tiagonerv1987/node:prod
+    container_name: node
+    volumes:
+      - ../../frameworks/node/:/usr/src/app
+    environment:
+      - DEBUG_ENABLE=true
+      - PORT=3000
+    tty: true
+    expose:
+      - 3000
+    ports:
+      - "3000:3000"
+    networks:
+      - node-net
+
+networks:
+  node-net:
+    driver: bridge

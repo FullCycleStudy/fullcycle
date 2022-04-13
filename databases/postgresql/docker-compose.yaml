@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      PGDATA: "/data/postgres"
+    volumes:
+      - ./postgres:/data/postgres
+      - ./docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
+    expose:
+      - "5432"
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.config:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - postgres
+    ports:
+      - "5432:5432"
+      - "80:80"
+    entrypoint:
+      - tail
+      - -f
+      - 'dev/null'
