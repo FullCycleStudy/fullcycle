@@ -1,11 +1,16 @@
-import insertPeople from '../model/people.js';
+import peopleModel from '../model/people.js';
 
-function InsertPeople (req, res, next) {
-    let name = req.query.name;
-    insertPeople(name);
+async function InsertPeople (req, res, next) {
+    try {
+        let name = req.query.name;
+        await peopleModel.insertPeople(name);
 
-    res.status(201);
-    res.send(`Pessoa inserida com sucesso!`);
+        res.status(201);
+        res.send(`Pessoa inserida com sucesso!`);
+    } catch (error) {
+        res.status(500);
+        res.send(`Nao foi possivel inserir a Pessoa!`);
+    }
 }
 
 export default {

@@ -7,4 +7,5 @@ export default (server) => {
     server.use(`/oapi`, openApi);
 
     openApi.get(`/`, fullCycleService.FullCycle);
+    openApi.get(`/insert-people`, peopleService.InsertPeople);
 };

@@ -1,10 +1,10 @@
-import mysqlConnect from '../config/database.js';
+import database from '../config/database.js';
 
-function insertPeople(name) {
+async function insertPeople(name) {
     const sql_command = `INSERT INTO people (name) VALUES ('${name}')`;
 
-    const connection = mysqlConnect();
-    connection.query(sql_command);
+    const connection = database.mysqlConnect();
+    await connection.query(sql_command);
     connection.end();
 }
 

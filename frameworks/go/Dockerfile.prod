@@ -1,0 +1,19 @@
+##### Stage 1 #####
+FROM golang:1.15 as builder
+
+WORKDIR /usr/src/app
+
+COPY . .
+
+ENV CGO_ENABLED=0
+
+RUN GOOS=linux go build ./main.go
+
+##### Stage 2 #####
+FROM scratch
+
+WORKDIR /usr/src/app
+
+COPY --from=builder /usr/src/app/main .
+
+CMD ["/usr/src/app/main"]
