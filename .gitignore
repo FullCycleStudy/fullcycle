@@ -1,0 +1,6 @@
+frameworks/node/node_modules
+databases/mongodb/data
+databases/mysql/data
+databases/oracle/data
+databases/postgresql/data
+databases/sqlserver/data
