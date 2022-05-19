@@ -1,3 +1,4 @@
+node_modules
 frameworks/node/node_modules
 databases/mongodb/data
 databases/mysql/data
