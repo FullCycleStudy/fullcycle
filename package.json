@@ -25,7 +25,8 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "npx --no -- commitlint --edit ",
+      "pre-commit": "npx --no -- commitlint --edit "
     }
   }
 }
