@@ -1,5 +1,13 @@
 package main
 
 func main() {
-	println("Code.education Rocks!")
+	println(getHelloCodeEducation())
+}
+
+func getHelloCodeEducation() string {
+	return "Hello Code.education!"
+}
+
+func Soma(a, b int) int {
+	return a + b
 }

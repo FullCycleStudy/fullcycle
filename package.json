@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
-    "commitlint": "commitlint -E HUSKY_GIT_PARAMS"
+    "commitlint": "commitlint -E HUSKY_GIT_PARAMS",
+    "commit": "git cz"
   },
   "repository": {
     "type": "git",
