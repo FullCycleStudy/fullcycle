@@ -1,4 +1,4 @@
-package main
+package testing
 
 func TestSoma(t *testing.T) {
 	total := Soma(1, 2)
