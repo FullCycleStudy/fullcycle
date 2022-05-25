@@ -1,8 +1,13 @@
 name: ci-golang-workflow
+
 on: [push]
+
 jobs:
   check-application:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./framework/go
     steps:
         - uses: actions/checkout@v2
         - uses: actions/setup-go@v2
