@@ -1,5 +1,12 @@
 {
     "cSpell.ignoreRegExpList": [
         ".*"
-    ]
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true,
+        "source.fixAll.eslint": true
+    },
+    "gopls": {
+        "experimentalWorkspaceModule": true,
+    }
 }

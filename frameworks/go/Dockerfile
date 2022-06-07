@@ -1,15 +1,9 @@
-FROM golang:latest
+FROM golang:1.17
 
 WORKDIR /usr/src/app
 
 COPY . .
 
-ENV GOPATH=$HOME/go/
+# CMD ["tail", "-f", "/dev/null"]
 
-ENV GOROOT=/usr/local/go
-
-ENV PATH=$GOROOT/bin:$PATH
-
-ENV PATH=$PATH:$GOPATH/bin
-
-CMD ["go", "run", "main.go"]
+CMD ["/usr/src/app/main"]
