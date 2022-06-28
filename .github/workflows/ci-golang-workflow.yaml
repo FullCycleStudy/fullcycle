@@ -18,3 +18,4 @@ jobs:
           with:
             go-version: ${{ matrix.go }}
         - run: go test soma_test.go
+        - run: go run main.go
