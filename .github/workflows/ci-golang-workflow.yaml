@@ -28,7 +28,7 @@ jobs:
 
         - name: Build and Push
           id: docker_build
-          uses: docker/docker-push-action@v2
+          uses: docker/docker-push-action@v1
           with:
             push: false
             tags: tiagonerv1987/golang-app:${{ matrix.go }}
