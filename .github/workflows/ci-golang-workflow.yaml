@@ -19,3 +19,18 @@ jobs:
             go-version: ${{ matrix.go }}
         - run: go test soma_test.go
         - run: go run main.go
+
+        - name: Set up QEMU
+          uses: docker/setup-qemu-action@v2
+
+        - name: Set up Docker Buildx
+          uses: docker/setup-buildx-action@v2
+
+        - name: Build and Push
+          id: docker_build
+          uses: docker/docker-push-action@v2
+          with:
+            push: false
+            tags: tiagonerv1987/golang-app:${{ matrix.go }}
+            build-args:
+              GO_VERSION=${{ matrix.go }}
