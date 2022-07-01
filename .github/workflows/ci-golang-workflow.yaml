@@ -13,6 +13,7 @@ jobs:
       run:
         working-directory: ./frameworks/go
     steps:
+        - name: Test and Run
         - uses: actions/checkout@v2
         - uses: actions/setup-go@v2
           with:
@@ -32,3 +33,5 @@ jobs:
           with:
             push: false
             tags: tiagonerv1987/golang-app:${{ matrix.go }}
+          run:
+            ls
