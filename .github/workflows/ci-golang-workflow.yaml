@@ -33,4 +33,3 @@ jobs:
           with:
             push: false
             tags: tiagonerv1987/golang-app:${{ matrix.go }}
-            context: ./frameworks/go
