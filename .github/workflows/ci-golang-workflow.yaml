@@ -34,3 +34,4 @@ jobs:
             push: false
             tags: tiagonerv1987/golang-app:${{ matrix.go }}
             context: ./frameworks/go
+            dockerfile: Dockerfile
