@@ -3,15 +3,17 @@ on:
   pull_request:
     branches:
       - develop
+
 jobs:
   check-application:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        go: ['1.17']
+        go: ['1.15', '1.17']
     defaults:
       run:
         working-directory: ./frameworks/go
+    name: Go ${{ matrix.go }} sample
     steps:
         - name: Test and Run
         - uses: actions/checkout@v2
