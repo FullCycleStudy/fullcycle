@@ -15,14 +15,14 @@ jobs:
         working-directory: ./frameworks/go
     steps:
         - name: Run
-        - uses: actions/checkout@v2
-        - uses: actions/setup-go@v2
+          uses: actions/checkout@v2
+          run: actions/setup-go@v2
           with:
             go-version: ${{ matrix.go }}
 
         - name: Test
-        - run: go test soma_test.go
-        - run: go run main.go
+          uses: go test soma_test.go
+          run: go run main.go
 
         - name: Set up QEMU
           uses: docker/setup-qemu-action@v2
